@@ -2,10 +2,9 @@ import { DECIMAL_PLACES, PRICE_DECIMAL_PLACES } from '../constants/config';
 
 export const formatNumber = (num: number | string, decimals: number = DECIMAL_PLACES): string => {
   if (!num || isNaN(Number(num))) return '0';
-  return Number(num).toLocaleString('en-US', {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: decimals
-  });
+  const formatted = Number(num).toFixed(decimals);
+  // Remove trailing zeros
+  return parseFloat(formatted).toString();
 };
 
 export const formatPrice = (price: number | string): string => {

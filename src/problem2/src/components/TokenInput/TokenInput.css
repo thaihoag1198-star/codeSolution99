@@ -1,0 +1,308 @@
+.token-input-section {
+  background: #f9fafb;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  border: 1px solid var(--border);
+  transition: all 0.2s ease;
+}
+
+.token-input-section:hover {
+  border-color: var(--primary-color);
+  background: white;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.section-label {
+  font-size: 0.813rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.section-balance {
+  font-size: 0.813rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.input-row {
+  display: flex;
+  gap: 12px;
+}
+
+/* Token Selector */
+.token-selector-wrapper {
+  position: relative;
+}
+
+.token-selector {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 120px;
+  user-select: none;
+  height: 44px;
+}
+
+.token-selector:hover {
+  border-color: var(--primary-color);
+  background: #f9fafb;
+}
+
+.token-icon {
+  font-size: 1.25rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.token-icon-img {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  object-fit: contain;
+}
+
+.token-symbol {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.dropdown-arrow {
+  margin-left: auto;
+  font-size: 0.75rem;
+  color: #94a3b8;
+  transition: transform 0.2s ease;
+}
+
+.token-selector:hover .dropdown-arrow {
+  transform: translateY(2px);
+}
+
+.token-dropdown {
+  width: 200px;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  z-index: 1000;
+  border: 1px solid var(--border);
+  animation: dropdownSlide 0.2s ease;
+  overflow: hidden;
+}
+
+@keyframes dropdownSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.token-search {
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--border);
+  background: #f9fafb;
+}
+
+.token-search input {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color 0.2s;
+  background: white;
+}
+
+.token-search input:focus {
+  border-color: var(--primary-color);
+}
+
+.token-list {
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.token-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.token-list::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.token-list::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+.token-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.token-option:last-child {
+  border-bottom: none;
+}
+
+.token-option:hover {
+  background: #f9fafb;
+}
+
+.token-option.active {
+  background: #eef2ff;
+}
+
+.token-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.token-name {
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+.no-results {
+  padding: 20px;
+  text-align: center;
+  color: #94a3b8;
+  font-size: 0.875rem;
+}
+
+/* Amount Input */
+.amount-input-wrapper {
+  flex: 1;
+}
+
+.amount-input {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  background: white;
+  transition: all 0.2s ease;
+  outline: none;
+  height: 44px;
+}
+
+.amount-input:focus {
+  border-color: var(--primary-color);
+  background: #f9fafb;
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.1);
+}
+
+.amount-input::placeholder {
+  color: #cbd5e1;
+}
+
+.amount-input:read-only {
+  cursor: default;
+  background: #f9fafb;
+}
+
+.amount-input.input-error {
+  border-color: #ef4444;
+}
+
+.input-error-message {
+  font-size: 0.75rem;
+  color: #dc2626;
+  margin-top: 4px;
+  padding-left: 4px;
+  min-height: 16px;
+}
+
+.usd-value {
+  margin-top: 0.5rem;
+  font-size: 0.813rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  text-align: right;
+  min-height: 18px;
+}
+
+.empty-value {
+  margin-top: 0.5rem;
+  min-height: 18px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+  .token-input-section {
+    padding: 0.75rem;
+  }
+
+  .token-selector {
+    min-width: 100px;
+    height: 40px;
+    padding: 8px 10px;
+  }
+
+  .token-icon {
+    font-size: 1rem;
+  }
+
+  .token-icon-img {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .token-symbol {
+    font-size: 0.875rem;
+  }
+
+  .amount-input {
+    height: 40px;
+    font-size: 0.95rem;
+    padding: 8px 10px;
+  }
+
+  .input-row {
+    gap: 0.5rem;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 640px) {
+  .input-row {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .token-selector {
+    width: 100%;
+  }
+}
+

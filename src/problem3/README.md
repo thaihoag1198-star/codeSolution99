@@ -44,7 +44,7 @@ const WalletPage: React.FC<Props> = (props: Props) => {
       .filter((balance: WalletBalance) => {
         const balancePriority = getPriority(balance.blockchain);
         if (lhsPriority > -99) { // bug: lhsPriority is not defined, should be balancePriority
-          if (balance.amount <= 0) { // wrong logic: keeping negative/zero amounts instead of positive
+          if (balance.amount <= 0) { // wrong logic: keeping negative/zero amounts
             return true;
           }
         }
@@ -75,11 +75,11 @@ const WalletPage: React.FC<Props> = (props: Props) => {
       const usdValue = prices[balance.currency] * balance.amount; // what if prices[balance.currency] is undefined?
       return (
         <WalletRow
-          className={classes.row} // classes is not defined
+          className={classes.row}
           key={index} // using index as key is bad practice
           amount={balance.amount}
           usdValue={usdValue}
-          formattedAmount={balance.formatted} // sortedBalances doesn't have formatted property
+          formattedAmount={balance.formatted} 
         />
       );
     }
@@ -94,6 +94,6 @@ const WalletPage: React.FC<Props> = (props: Props) => {
 1. **Type errors**: Missing properties, BoxProps undefined, using any
 2. **Logic bugs**: lhsPriority undefined, filter logic reversed, missing return in sort
 3. **Performance**: formattedBalances not memoized, unused dependency
-4. **React issues**: index as key, no null check for prices, classes undefined
+4. **React issues**: index as key, no null check for prices,
 
 See `index.tsx` for the refactored solution.

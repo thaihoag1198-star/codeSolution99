@@ -17,15 +17,13 @@ interface WalletPageProps {
 }
 
 // Fix: Use Map for O(1) lookup instead of switch statement
-const BLOCKCHAIN_PRIORITIES = new Map<string, number>([
+const BlockChainPri = new Map<string, number>([
   ["Osmosis", 100],
   ["Ethereum", 50],
   ["Arbitrum", 30],
   ["Zilliqa", 20],
   ["Neo", 20],
 ]);
-
-// Mock hooks
 
 
 const WalletRow: React.FC<{
@@ -54,13 +52,13 @@ export const WalletPage: React.FC<WalletPageProps> = ({
   const processedBalances = useMemo(() => {
     return balances
       .filter((balance) => {
-        const priority = BLOCKCHAIN_PRIORITIES.get(balance.blockchain) ?? -99;
+        const priority = BlockChainPri.get(balance.blockchain) ?? -99;
         // Fix: Correct logic - keep positive amounts with valid priority
         return balance.amount > 0 && priority > -99;
       })
       .sort((lhs, rhs) => {
-        const leftPriority = BLOCKCHAIN_PRIORITIES.get(lhs.blockchain) ?? -99;
-        const rightPriority = BLOCKCHAIN_PRIORITIES.get(rhs.blockchain) ?? -99;
+        const leftPriority = BlockChainPri.get(lhs.blockchain) ?? -99;
+        const rightPriority = BlockChainPri.get(rhs.blockchain) ?? -99;
         
         // Fix: Complete sort function with return for all cases
         if (leftPriority !== rightPriority) {
@@ -83,7 +81,7 @@ export const WalletPage: React.FC<WalletPageProps> = ({
 
       return (
         <WalletRow
-          key={`${balance.blockchain}-${balance.currency}`} // Fix: Use stable unique key
+          key={`${balance.blockchain}-${balance.currency}`} // Fix: Use stable unique key , should have unique id from Backend
           currency={balance.currency}
           amount={balance.amount}
           usdValue={usdValue}

@@ -7,7 +7,6 @@ function App() {
       <div className="container">
         <header className="app-header">
           <h1>💱 Token Exchange</h1>
-          <p className="subtitle">Exchange crypto assets instantly with best rates</p>
         </header>
         <ExchangeForm />
         <footer className="app-footer">

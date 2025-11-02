@@ -128,7 +128,7 @@ const ExchangeForm = () => {
           className="submit-button"
           disabled={!fromAmount || parseFloat(fromAmount) <= MIN_AMOUNT || parseFloat(fromAmount) > MAX_AMOUNT}
         >
-          Submit
+          Show Information
         </button>
       </form>
 
